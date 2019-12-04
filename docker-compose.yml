@@ -1,0 +1,30 @@
+version: '3'
+services:
+  alice:
+    build: .
+    image: sshcommunication
+    container_name: alice
+    privileged: true
+    volumes: 
+      - ./alice:/dat
+    command: /sbin/init
+  bob:
+    build: .
+    image: sshcommunication
+    container_name: bob
+    privileged: true
+    volumes: 
+      - ./bob:/dat
+    command: /sbin/init
+  charlie:
+    build: .
+    image: sshcommunication
+    container_name: charlie
+    privileged: true
+    volumes: 
+      - ./charlie:/dat
+    command: /sbin/init
+networks:
+  default:
+    external:
+      name: test-network
