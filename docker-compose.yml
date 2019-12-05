@@ -2,27 +2,30 @@ version: '3'
 services:
   alice:
     build: .
-    image: sshcommunication
+    image: ssh-p2p
     container_name: alice
     privileged: true
     volumes: 
       - ./alice:/dat
+      - ./src:/src
     command: /sbin/init
   bob:
     build: .
-    image: sshcommunication
+    image: ssh-p2p
     container_name: bob
     privileged: true
     volumes: 
       - ./bob:/dat
+      - ./src:/src
     command: /sbin/init
   charlie:
     build: .
-    image: sshcommunication
+    image: ssh-p2p
     container_name: charlie
     privileged: true
     volumes: 
       - ./charlie:/dat
+      - ./src:/src
     command: /sbin/init
 networks:
   default:
