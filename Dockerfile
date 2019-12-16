@@ -21,5 +21,5 @@ RUN pip3.6 install \
         scp \
         ecdsa \
         base58
-WORKDIR /src
+WORKDIR /home
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]

@@ -4,6 +4,7 @@ import hashlib
 import datetime
 import time
 import json
+import os
 
 INITIAL_BITS = 0x1e777777
 MAX_32BIT = 0xffffffff
@@ -53,13 +54,20 @@ class Blockchain():
     def __init__(self, initial_bits):
         self.chain = []
         self.initial_bits = initial_bits
+        self.data_dir = "./data/blocks"
 
     def add_block(self, block):
         self.chain.append(block)
     
     def getblockinfo(self, index=-1):
         return print(json.dumps(self.chain[index].to_json(), indent=2, sort_keys=True, ensure_ascii=False))
-    
+
+    def write_block_data(self, block_height, index=-1):
+        os.makedirs(self.data_dir, exist_ok=True)
+        file_name = self.data_dir + "/block" + str(block_height) + ".txt"
+        with open(file_name, "w") as f:
+            json.dump(self.chain[index].to_json(), f, indent=2, sort_keys=True, ensure_ascii=False)
+
     def mining(self, block):
         start_time = int(time.time() * 1000)
         while True:
@@ -80,16 +88,18 @@ class Blockchain():
     def create_genesis(self):
         genesis_block = Block(0, "0000000000000000000000000000000000000000000000000000000000000000", "Genesis Block", datetime.datetime.now(), self.initial_bits)
         self.mining(genesis_block)
+        self.write_block_data(0)
     
     def add_newblock(self, i):
         last_block = self.chain[-1]
         block = Block(i+1, last_block.block_hash, str(i+1), datetime.datetime.now(), last_block.bits)
         self.mining(block)
+        self.write_block_data(i)
 
 if __name__ == "__main__":
     bc = Blockchain(INITIAL_BITS)
     print("Creating the Genesis block...")
     bc.create_genesis()
     for i in range(30):
-        print("Creating Block #" + str(i+2) + "...")
+        print("Creating Block #" + str(i+1) + "...")
         bc.add_newblock(i)

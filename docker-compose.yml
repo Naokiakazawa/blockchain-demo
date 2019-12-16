@@ -1,31 +1,31 @@
 version: '3'
 services:
-  alice:
+  miner:
     build: .
     image: ssh-p2p
-    container_name: alice
+    container_name: miner
     privileged: true
     volumes: 
-      - ./alice:/dat
-      - ./src:/src
+      - ./miner:/home/data
+      - ./src:/home/code
     command: /sbin/init
-  bob:
+  peer_node_1:
     build: .
     image: ssh-p2p
-    container_name: bob
+    container_name: peer_node_1
     privileged: true
     volumes: 
-      - ./bob:/dat
-      - ./src:/src
+      - ./peer_node_1:/home/data
+      - ./src:/home/code
     command: /sbin/init
-  charlie:
+  peer_node_2:
     build: .
     image: ssh-p2p
-    container_name: charlie
+    container_name: peer_node_2
     privileged: true
     volumes: 
-      - ./charlie:/dat
-      - ./src:/src
+      - ./peer_node_2:/home/data
+      - ./src:/home/code
     command: /sbin/init
 networks:
   default:
