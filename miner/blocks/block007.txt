@@ -1,0 +1,10 @@
+{
+  "bits": "1e777777",
+  "block_hash": "00002d3d09377ff53d8c0df8f738c7f7a956cc2399df69fb60f4f609879a2fec",
+  "elapsed_time": "1.357 Sec",
+  "index": 8,
+  "nonce": "00049f48",
+  "prev_hash": "000025db4c6c2060849a97e614491626d9fbddb7e193cd9b8a83411c75cd9ce4",
+  "stored_data": "8",
+  "timestamp": "2019/12/16 14:16:07"
+}
