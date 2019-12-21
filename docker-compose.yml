@@ -7,7 +7,7 @@ services:
     privileged: true
     volumes: 
       - ./miner:/home/data
-      - ./src:/home/code
+      - ./cmds:/home/cmds
     command: /sbin/init
   peer_node_1:
     build: .
@@ -16,7 +16,7 @@ services:
     privileged: true
     volumes: 
       - ./peer_node_1:/home/data
-      - ./src:/home/code
+      - ./cmds:/home/cmds
     command: /sbin/init
   peer_node_2:
     build: .
@@ -25,7 +25,7 @@ services:
     privileged: true
     volumes: 
       - ./peer_node_2:/home/data
-      - ./src:/home/code
+      - ./cmds:/home/cmds
     command: /sbin/init
 networks:
   default:
