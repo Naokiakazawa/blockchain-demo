@@ -100,6 +100,6 @@ if __name__ == "__main__":
     bc = Blockchain(INITIAL_BITS)
     print("Creating the Genesis block...")
     bc.create_genesis()
-    for i in range(30):
+    for i in range(100):
         print("Creating Block #" + str(i+1) + "...")
         bc.add_newblock(i)
