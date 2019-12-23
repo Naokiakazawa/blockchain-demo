@@ -6,7 +6,7 @@ import time
 import json
 import os
 
-INITIAL_BITS = 0x1dffffff
+INITIAL_BITS = 0x1e111111
 MAX_32BIT = 0xffffffff
 
 class Block():
