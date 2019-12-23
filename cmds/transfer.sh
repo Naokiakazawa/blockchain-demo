@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 DIR=/home/data/blocks
-RECEIVER=peer_node_1
+RECEIVER=$1
 USER=root
 
 sshpass -p "password" ssh -o "StrictHostKeyChecking no" $USER@$RECEIVER mkdir -p $DIR
