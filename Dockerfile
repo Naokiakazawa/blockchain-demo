@@ -14,7 +14,8 @@ RUN yum search python36 && \
         python36u \
         python36u-libs \
         python36u-devel \
-        python36u-pip
+        python36u-pip \
+        rsync
 #Install packages using pip3.6
 RUN pip3.6 install \
         paramiko \
