@@ -73,6 +73,8 @@ class Blockchain():
         while True:
             for n in range(MAX_32BIT + 1):
                 block.nonce = n
+                if block.nonce % 100000 == 0:
+                    print("Calculating hash when nonce is", block.nonce)
                 if block.check_valid_hash():
                     end_time = int(time.time() * 1000)
                     block.elapsed_time = str((end_time - start_time) / 1000.0) + " Sec"
