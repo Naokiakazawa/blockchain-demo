@@ -64,7 +64,7 @@ class Blockchain():
 
     def write_block_data(self, block_height, index=-1):
         os.makedirs(self.data_dir, exist_ok=True)
-        file_name = self.data_dir + "/block" + str(block_height).rjust(3, "0") + ".txt"
+        file_name = self.data_dir + "/block" + str(block_height).rjust(3, "0") + ".json"
         with open(file_name, "w") as f:
             json.dump(self.chain[index].to_json(), f, indent=2, sort_keys=True, ensure_ascii=False)
 
