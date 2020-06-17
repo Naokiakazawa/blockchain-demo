@@ -1,6 +1,6 @@
 # Blockchain demonstration
 
-Implementation Mining and Transfer, Recieve processes.
+Python implementation Mining and Transfer, Recieve processes.
 
 ## how to use
 
